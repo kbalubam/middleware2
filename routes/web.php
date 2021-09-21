@@ -20,9 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/article',ArticleController::class)->middleware(['auth',"admin"]);
+Route::resource('/article',ArticleController::class)->middleware(['auth',"admin"],['auth',"user"]);
 Route::resource('/bo',BoController::class)->middleware(['auth',"admin"]);
-Route::resource('/accueil', AcceuilController::class);
+Route::resource('/accueil', AcceuilController::class)->middleware(['auth',"admin"],['auth',"user"]);
 
 
 Route::get('/dashboard', function () {
